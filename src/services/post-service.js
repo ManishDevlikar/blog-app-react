@@ -29,3 +29,14 @@ export const getAllPost = (pageNo, pageSize) => {
 export const getPostById = (postId) => {
   return myAxios.get(`/api/posts/${postId}`).then((res) => res.data);
 };
+
+// upload post banner
+
+export const uploadPostImage = (image,postId) => {
+  let formData = new FormData();
+  formData.append("image", image)
+  
+  return privateAxios
+    .post(`/api/post/image/upload/${postId}`, formData,{headers:{'Content-Type':'multipart/form-data'}})
+    .then((res) => res.data);
+}
