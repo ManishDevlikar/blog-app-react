@@ -1,12 +1,17 @@
 import Base from "../components/Base";
+import userContext from "../context/userContext";
 
 function Services() {
   return (
-    <Base>
-      <div>
-        <h1>this is Servies page</h1>
-      </div>
-    </Base>
+    <userContext.Consumer>
+      {(user) => (
+        <Base>
+          <div>
+            <h1>this is Servies page {user?.name}</h1>
+          </div>
+        </Base>
+      )}
+    </userContext.Consumer>
   );
 }
 
