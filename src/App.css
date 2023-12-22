@@ -1,0 +1,8 @@
+body {
+    /* background: #515151 !important; */
+}
+
+.page-item.active .page-link {
+    background-color: #121212 !important;
+    border-color: #212121 !important;
+}
