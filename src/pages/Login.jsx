@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Base from "../components/Base";
 import {
   Container,
@@ -17,7 +17,10 @@ import { toast } from "react-toastify";
 import { loginUser } from "../services/user-service";
 import { doLogin } from "../auth";
 import { useNavigate } from "react-router-dom";
+import userContext from "../context/userContext";
+
 const Login = () => {
+  const userContexData = useContext(userContext);
   const navigate = useNavigate();
   const [loginDetails, setLoginDetails] = useState({
     username: "",
@@ -51,6 +54,7 @@ const Login = () => {
         doLogin(jwtTokenData, () => {
           console.log("saved to local storage");
           // redirect to dashboard
+          userContexData.setUsers({ data: jwtTokenData, login: true });
           navigate("/user/dashboard");
         });
         toast.success("login successfully");
