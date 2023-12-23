@@ -32,11 +32,29 @@ export const getPostById = (postId) => {
 
 // upload post banner
 
-export const uploadPostImage = (image,postId) => {
+export const uploadPostImage = (image, postId) => {
   let formData = new FormData();
-  formData.append("image", image)
-  
+  formData.append("image", image);
+
   return privateAxios
-    .post(`/api/post/image/upload/${postId}`, formData,{headers:{'Content-Type':'multipart/form-data'}})
+    .post(`/api/post/image/upload/${postId}`, formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    })
     .then((res) => res.data);
-}
+};
+
+export const getPostsByCategory = (categoryId) => {
+  return privateAxios
+    .get(`/api/category/${categoryId}/post`)
+    .then((res) => res.data);
+};
+
+export const getPostsByUser = (userId) => {
+  return privateAxios.get(`/api/user/${userId}/post`).then((res) => res.data);
+};
+
+// delete post
+
+export const deletePostById = (postId) => {
+  return privateAxios.delete(`/api/posts/${postId}`).then((res) => res.status);
+};

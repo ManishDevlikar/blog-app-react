@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllPost } from "../services/post-service";
+import { deletePostById, getAllPost } from "../services/post-service";
 import {
   Row,
   Col,
@@ -31,7 +31,20 @@ function NewFeed() {
     //   });
     changePage(currentPage);
   }, [currentPage]);
-  // console.log(postContent);
+
+  const deletePost = (post) => {
+    deletePostById(post.postId)
+      .then((res) => {
+        console.log(res);
+        toast.success("post deleted successfully");
+ let newPostContent =postContent.content.filter(p=>p.postId!=post.postId)
+        setPostContent({ ...postContent, content: newPostContent });
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("error in deleting post");
+      });
+  };
 
   const changePage = (pageNo = 0, pageSize = 5) => {
     if (pageNo > postContent.pageNo && postContent.lastPage) {
@@ -66,20 +79,22 @@ function NewFeed() {
   return (
     <div className="container-fluid">
       <Row>
-        <Col md={{ size: 10, offset: 1 }}>
-          <h1>Blogs Count({postContent?.totalElements})</h1>
+        <Col md={{ size: 12 }}>
+          <h3>Blogs Count({postContent?.totalElements})</h3>
 
           <InfiniteScroll
             dataLength={postContent?.content.length}
             next={changePageInfinite}
             hasMore={!postContent.lastPage}
             loader={<h4>Loading...</h4>}
-            endMessage={ 
-              <p style={{ textAlign: "center" }}><b>You Have Seen It All</b></p>
+            endMessage={
+              <p style={{ textAlign: "center" }}>
+                <b>You Have Seen It All</b>
+              </p>
             }
           >
             {postContent?.content?.map((post) => (
-              <Post key={post.postId} post={post} />
+              <Post deletePost={deletePost} key={post.postId} post={post} />
             ))}
           </InfiniteScroll>
 
