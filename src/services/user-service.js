@@ -5,5 +5,16 @@ export const signUp = (user) => {
 };
 
 export const loginUser = (loginDetails) => {
-    return myAxios.post('/api/auth/login',loginDetails).then((res)=>res.data)
-}
+  return myAxios.post("/api/auth/login", loginDetails).then((res) => res.data);
+};
+
+// get user
+
+export const getUserById = (id) => {
+  return myAxios
+    .get(
+      `
+api/users/${id}`
+    )
+    .then((res) => res.data);
+};

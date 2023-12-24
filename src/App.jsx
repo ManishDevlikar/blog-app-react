@@ -31,7 +31,7 @@ function App() {
           <Route path="/categories/:categoryId" element={<Categories />} />
           <Route path="/user" element={<PrivateRoute />}>
             <Route path="dashboard" element={<UserDashboard />} />
-            <Route path="profile-info" element={<Profileinfo />} />
+            <Route path="profile-info/:userId" element={<Profileinfo />} />
             <Route path="update-blog/:postId" element={<UpdateBlog />} />
           </Route>
         </Routes>
