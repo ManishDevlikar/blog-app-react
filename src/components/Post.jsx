@@ -9,10 +9,10 @@ function Post({
   deletePost,
 }) {
   const userContexData = useContext(userContext);
-  const [user, setUser] = useState([]);
-  const [login, setLogin] = useState(false);
+  const [user, setUser] = useState(null);
+  const [login, setLogin] = useState(null);
   useEffect(() => {
-    setLogin(isLoggedIn());
+    setLogin(isLoggedIn);
     setUser(getCurrentUserDetail());
   }, []);
   return (
@@ -28,8 +28,8 @@ function Post({
           <Link className="btn btn-secondary" to={`/posts/${post.postId}`}>
             Read More
           </Link>
-          {userContexData.user.login ? (
-            user.id == post.user?.id ? (
+          {userContexData.user.login &&
+            (user && user.id == post.user?.id ? (
               <Button
                 onClick={() => deletePost(post)}
                 color="danger"
@@ -39,10 +39,19 @@ function Post({
               </Button>
             ) : (
               ""
-            )
-          ) : (
-            ""
-          )}
+            ))}
+          {userContexData.user.login &&
+            (user && user.id == post.user?.id ? (
+              <Link
+                to={`/user/update-blog/${post.postId}`}
+                color="dark"
+                className="ms-2 btn btn-dark"
+              >
+                Update
+              </Link>
+            ) : (
+              ""
+            ))}
         </div>
       </CardBody>
     </Card>

@@ -9,7 +9,7 @@ function About() {
           <div>
             <h1>we are bulidingwe are about</h1>
             <p>{}</p>
-            <p>{u.user.login && u.user.data.user.name}</p>
+            <p>{u.user.login && u.user.data.name}</p>
           </div>
         </Base>
       )}

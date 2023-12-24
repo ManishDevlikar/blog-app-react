@@ -8,7 +8,7 @@ function Services() {
         <Base>
           <div>
             <h1>
-              this is Servies page {u?.user.login && u?.user.data.user.name}
+              this is Servies page {u?.user?.login && u?.user?.data?.name}
             </h1>
           </div>
         </Base>

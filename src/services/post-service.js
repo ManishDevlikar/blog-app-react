@@ -58,3 +58,10 @@ export const getPostsByUser = (userId) => {
 export const deletePostById = (postId) => {
   return privateAxios.delete(`/api/posts/${postId}`).then((res) => res.status);
 };
+
+// update post
+
+export const updatePostById = (post, postId) => {
+  console.log(post);
+  return privateAxios.put(`/api/posts/${postId}`, post).then((res) => res.data);
+};

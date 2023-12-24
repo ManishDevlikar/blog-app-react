@@ -54,7 +54,7 @@ const Login = () => {
         doLogin(jwtTokenData, () => {
           console.log("saved to local storage");
           // redirect to dashboard
-          userContexData.setUsers({ data: jwtTokenData, login: true });
+          userContexData.setUsers({ data: jwtTokenData.user, login: true });
           navigate("/user/dashboard");
         });
         toast.success("login successfully");
