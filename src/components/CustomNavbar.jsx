@@ -44,7 +44,7 @@ function CustomNavbar(args) {
     <div>
       <Navbar {...args} className="my-0" color="dark" expand="md" dark>
         <NavbarBrand to="/" tag={ReactLink}>
-          MyBlog{" "}
+          PlainPost{" "}
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

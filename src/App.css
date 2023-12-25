@@ -6,3 +6,29 @@ body {
     background-color: #121212 !important;
     border-color: #212121 !important;
 }
+
+
+/* globalStyles.css */
+
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 8px;
+    /* Reduce the width for a thinner scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #313131;
+    /* Black thumb color */
+    border-radius: 3px;
+    /* Adjust border-radius for a subtle rounded corner */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #919191;
+    /* White track color */
+}
+
+/* For Firefox */
+/* scrollbar-width: 8px;
+scrollbar-color: #000; */
+/* Black thumb and white track colors */
