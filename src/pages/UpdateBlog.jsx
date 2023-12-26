@@ -1,4 +1,4 @@
-import  { useRef, useContext, useState, useEffect } from "react";
+import { useRef, useContext, useState, useEffect } from "react";
 import Base from "../components/Base";
 import {
   Button,
@@ -69,7 +69,6 @@ function UpdateBlog() {
   const updatePost = () => {
     return (
       <div className="wrapper">
-        {JSON.stringify(post)}
         <Card className="shadow-sm mt-2">
           <CardBody>
             <h3>Update Post</h3>

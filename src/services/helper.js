@@ -1,6 +1,8 @@
 import axios from "axios";
 import { getToken } from "../auth";
-export const BASE_URL = "http://localhost:8080";
+// export const BASE_URL = "http://localhost:8080";
+export const BASE_URL =
+  "http://blogapp-env.eba-cupkdmd5.us-east-1.elasticbeanstalk.com";
 
 export const myAxios = axios.create({
   baseURL: BASE_URL,
