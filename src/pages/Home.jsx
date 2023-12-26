@@ -1,6 +1,6 @@
 import Base from "../components/Base";
 import CategorySideMenu from "../components/CategorySideMenu";
-import { NewFeed } from "../components/newFeed";
+import NewFeed from "../components/newFeed";
 import { Col, Container, Row } from "reactstrap";
 function Home() {
   return (
